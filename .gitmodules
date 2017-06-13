@@ -1,0 +1,24 @@
+[submodule "barn/PIGNOSE-Calendar"]
+	path = barn/PIGNOSE-Calendar
+	url = https://github.com/KennethanCeyer/pg-calendar
+[submodule "barn/PIGNOSE-FormulaParser"]
+	path = barn/PIGNOSE-FormulaParser
+	url = https://github.com/KennethanCeyer/formula-parser
+[submodule "barn/PIGNOSE-ParallaxSlider"]
+	path = barn/PIGNOSE-ParallaxSlider
+	url = https://github.com/KennethanCeyer/pg-parallax-slider
+[submodule "barn/PIGNOSE-Gallery"]
+	path = barn/PIGNOSE-Gallery
+	url = https://github.com/KennethanCeyer/pg-gallery
+[submodule "barn/PIGNOSE-Tab"]
+	path = barn/PIGNOSE-Tab
+	url = https://github.com/KennethanCeyer/pg-tab
+[submodule "barn/PIGNOSE-SinglePage"]
+	path = barn/PIGNOSE-SinglePage
+	url = https://github.com/KennethanCeyer/pg-single-page
+[submodule "barn/PIGNOSE-Popup"]
+	path = barn/PIGNOSE-Popup
+	url = https://github.com/KennethanCeyer/pg-popup
+[submodule "barn/PIGNOSE-HyperModel"]
+	path = barn/PIGNOSE-HyperModel
+	url = https://github.com/KennethanCeyer/hypermodel
