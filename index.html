@@ -1,0 +1,236 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>PIGNOSE</title>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/github-markdown-css/2.7.0/github-markdown.min.css" />
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.min.css" />
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+	<link href="https://fonts.googleapis.com/css?family=Inconsolata" rel="stylesheet">
+	<style type="text/css">
+		html, body {
+			height: 100%;
+			padding: 0;
+			margin: 0;
+			background-color: #ffffff;
+			font-size: 16px;
+			font-family: 'Inconsolata', monospace;
+		}
+
+		body {
+			position: relative;
+			background-color: #262830;
+			color: #ffffff;
+			-webkit-box-sizing: border-box;
+			-moz-box-sizing: border-box;
+			-o-box-sizing: border-box;
+			box-sizing: border-box;
+		}
+
+		h1, h2, h3, h4, h5, h6 {
+			font-weight: 400;
+		}
+
+		h1 { font-size: 2.25em; }
+		h2 { font-size: 1.5em; }
+		h3 { font-size: 1.17em; }
+		h4 { font-size: 1.12em; }
+		h5 { font-size: .83em; }
+		h6 { font-size: .75em; }
+
+		a {
+			color: rgba(255, 255, 255, .75);
+		}
+
+		a:hover,
+		a:focus {
+			color: rgba(255, 255, 255, 1);
+		}
+
+		ul {
+			list-style: none;
+			margin: 0;
+			display: inline-block;
+			text-align: left;
+			line-height: 2;
+		}
+
+		section {
+			margin-top: 40px;
+		}
+
+		.headline {
+			display: inline-block;
+			padding-bottom: 1em;
+			border-bottom: 1px solid rgba(255, 255, 255, .1);
+		}
+
+		.title,
+		.value {
+			display: inline-block;
+			vertical-align: middle;
+		}
+
+		.title {
+			min-width: 10em;
+			margin-right: 2em;
+			text-align: left;
+			font-weight: 600;
+		}
+
+		.rate {
+			display: inline-block;
+			width: 16px;
+			height: 16px;
+			margin-right: 2em;
+			border-radius: 50%;
+			vertical-align: middle;
+			-webkit-box-sizing: border-box;
+			-moz-box-sizing: border-box;
+			-o-box-sizing: border-box;
+			box-sizing: border-box;
+		}
+
+		.rate.major {
+			border: 8px solid #000000;
+		}
+		
+		.rate.middle {
+			border: 4px solid #000000;
+		}
+
+		.rate.minor {
+			border: 2px solid #000000;
+		}
+
+		.main {
+			display: table;
+			width: 100%;
+			height: 100%;
+			top: 0;
+			left: 0;
+			bottom: 0;
+			right: 0;
+			position: fixed;
+			table-layout: fixed;
+		}
+
+		.main-box {
+			display: table-cell;
+			text-align: center;
+			vertical-align: middle;
+		}
+
+		.scroller {
+			position: relative;
+			width: 100%;
+			padding: 80px;
+			max-height: 100%;
+			overflow: hidden;
+			overflow-y: auto;
+			-webkit-box-sizing: border-box;
+			-moz-box-sizing: border-box;
+			-o-box-sizing: border-box;
+			box-sizing: border-box;
+		}
+
+		.scroller > * {
+			position: relative;
+			z-index: 5;
+		}
+
+		.box-grow {
+			position: absolute;
+			top: 12%;
+			left: 44%;
+			width: 28%;
+			height: 760px;
+			min-width: 240px;
+			background-color: rgba(0, 0, 0, .375);
+		}
+
+		.floating-group {
+			position: fixed;
+			bottom: 40px;
+			right: 40px;
+			z-index: 10;
+		}
+
+		.floating {
+			display: inline-block;
+			width: 2.4em;
+			height: 2.4em;
+			line-height: 2.5em;
+			vertical-align: middle;
+			background-color: #ffffff;
+			border-radius: 50%;
+			margin-left: .6em;
+			text-align: center;
+			color: #000000 !important;
+			font-size: 20px;
+			-webkit-box-shadow: 0 3px 8px rgba(0, 0, 0, .75);
+			-moz-box-shadow: 0 3px 8px rgba(0, 0, 0, .75);
+			-o-box-shadow: 0 3px 8px rgba(0, 0, 0, .75);
+			box-shadow: 0 3px 8px rgba(0, 0, 0, .75);
+			-webkit-transition: background-color .3s ease, transform .3s ease;
+			-moz-transition: background-color .3s ease, transform .3s ease;
+			-o-transition: background-color .3s ease, transform .3s ease;
+			transition: background-color .3s ease, transform .3s ease;
+		}
+
+		.floating:hover {
+			background-color: #d8d8d8;
+			-webkit-transform: translate3d(0, -5px, 0);
+			transform: translate3d(0, -5px, 0);
+		}
+
+		@media (max-width: 480px) {
+			.scroller {
+				padding: 40px;
+			}
+
+			.box-grow {
+				display: none;
+			}
+		}
+	</style>
+</head>
+<body>
+	<!-- This file had been made by temporary purpose. -->
+	<div class="main">
+		<div class="main-box">
+			<div class="scroller">
+				<div class="box-grow"></div>
+				<h1 class="headline">PIGNOSE</h1>
+				<blockquote>developer &amp; designer</blockquote>
+
+				<ul>
+					<li>+82 010-3616-7981</li>
+					<li><a href="mailto://kennethan@nhpcw.com">kennethan@nhpcw.com</a></li>
+				</ul>
+
+				<section>
+					<h2>Contributions</h2>
+					<ul>
+						<li><a href="https://github.com/KennethanCeyer/pg-calendar">Calendar</a></li>
+						<li><a href="https://github.com/KennethanCeyer/pg-formula">Formula</a></li>
+						<li><a href="https://github.com/KennethanCeyer/pg-formula-parser">FormulaParser</a></li>
+						<li><a href="https://github.com/KennethanCeyer/pg-gallery">Gallery</a></li>
+						<li><a href="https://github.com/KennethanCeyer/pg-parallax-slider">ParallaxSlider</a></li>
+						<li><a href="https://github.com/KennethanCeyer/pg-popup">Popup</a></li>
+						<li><a href="https://github.com/KennethanCeyer/pg-single-page">SinglePage</a></li>
+						<li><a href="https://github.com/KennethanCeyer/pg-tab">Tab</a></li>
+					</ul>
+				</section>
+			</div>
+		</div>
+	</div>
+	<div class="floating-group">
+		<a href="https://www.facebook.com/PIGNOSE-1735920843294891/" class="floating" target="_blank"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+		<a href="https://github.com/KennethanCeyer" class="floating" target="_blank"><i class="fa fa-github-alt" aria-hidden="true"></i></a>
+		<a href="https://codepen.io/PIGNOSE/" class="floating" target="_blank"><i class="fa fa-codepen" aria-hidden="true"></i></a>
+		<a href="http://blog.pigno.se/" class="floating" target="_blank"><i class="fa fa-tumblr" aria-hidden="true"></i></a>
+	</div>
+</body>
+</html>
