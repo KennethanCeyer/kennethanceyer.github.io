@@ -22,3 +22,6 @@
 [submodule "barn/PIGNOSE-HyperModel"]
 	path = barn/PIGNOSE-HyperModel
 	url = https://github.com/KennethanCeyer/hypermodel
+[submodule "barn/PIGNOSE-Formula"]
+	path = barn/PIGNOSE-Formula
+	url = https://github.com/KennethanCeyer/formula
