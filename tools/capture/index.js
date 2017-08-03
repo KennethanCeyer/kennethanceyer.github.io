@@ -31,7 +31,7 @@ $(function() {
 			var $header = $('<div class="window-header"></div>');
 			if(platform == 'w') {
 				$div.addClass('window-windows');
-				$header.append('<img src="/static/image/window-hide.png" alt="" /><img src="/static/image/window-minimize.png" alt="" /><img src="/static/image/window-close.png" alt="" />');
+				$header.append('<img src="./static/image/window-hide.png" alt="" /><img src="./static/image/window-minimize.png" alt="" /><img src="./static/image/window-close.png" alt="" />');
 			} else if(platform == 'm') {
 				$div.addClass('window-mac');
 				$header.append('<span class="circle circle-close"></span><span class="circle circle-minimize"></span><span class="circle circle-hide"></span>');
