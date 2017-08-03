@@ -1,0 +1,283 @@
+html, body {
+	font-size: 16px;
+	font-weight: 400;
+	font-family: 'Nanum Gothic', 'dotum', 'sans-serif';
+	color: #333333;
+}
+
+h1, h2, h3 {
+	font-family: 'Noto Sans', 'Nanum Gothic', 'dotum', 'hevetica';
+	color: #000000;
+}
+
+h1 {
+	font-size: 200%;
+}
+
+h2 {
+	font-size: 160%;
+}
+
+h3 {
+	font-size: 130%;
+}
+
+#wrapper {
+}
+
+#header {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	background-color: #ffffff;
+	background-color: rgba(255, 255, 255, .6);
+	border-bottom: 1px solid #e7e7e7;
+	z-index: 50;
+}
+
+#header-inner {
+	max-width: 1200px;
+	height: 60px;
+	padding: 12px 20px;
+	margin: 0 auto;
+	text-align: right;
+}
+
+#header-inner .fb-like {
+	display: inline-block;
+	*display: inline;
+	*zoom: 1;
+	margin-top: 5px;
+	vertical-align: middle;
+}
+
+.header-btn {
+	display: inline-block;
+	*display: inline;
+	*zoom: 1;
+	height: 36px;
+	margin-left: 1.2em;
+	padding: 0 1.2em;
+	border-radius: 18px;
+	line-height: 34px;
+	border: 1px solid #000000;
+	color: #000000 !important;
+	font-size: 85%;
+	text-decoration: none !important;
+	box-sizing: border-box;
+	-o-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	transition: color, background-color .3s ease;
+	-o-transition: color, background-color .3s ease;
+	-moz-transition: color, background-color .3s ease;
+	-webkit-transition: color, background-color .3s ease;
+}
+
+.header-btn:hover {
+	color: #ffffff !important;
+	background-color: #000000;
+}
+
+#content, .section {
+	max-width: 1200px;
+	margin: 0 auto;
+	padding: 0 20px;
+	margin-top: 100px;
+}
+
+.content-main {
+	margin-top: 120px !important;
+	text-align: center;
+}
+
+.content-banner {
+	max-width: 100%;
+}
+
+.section {
+	padding-bottom: 60px;
+	border-bottom: 1px solid #e7e7e7;
+}
+
+.section h2 {
+	margin-bottom: 40px;
+}
+
+.article {
+	display: table;
+	width: 100%;
+	margin: 40px 0;
+	table-layout: fixed;
+	border-collapse: collapse;
+}
+
+.article-img,
+.article-inner {
+	display: table-cell;
+	padding: 20px;
+	vertical-align: top;
+	text-align: left;
+}
+
+.article-img {
+	width: 250px;
+}
+
+.article-img img {
+	max-width: 100%;
+}
+
+.article-inner {
+}
+
+.play-list {
+	padding: 5px 0;
+	overflow: hidden;
+}
+
+.play {
+	float: left;
+	width: 32.3%;
+	margin-right: 1%;
+	border-radius: 3px;
+	border: 1px solid #d8d8d8;
+	box-shadow: 2px 2px 5px #e7e7e7;
+	box-sizing: border-box;
+	cursor: pointer;
+	-o-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+}
+
+.play .play-img {
+	height: 140px;
+	background-repeat: no-repeat;
+	background-position: center center;
+	background-color: #c1ede2;
+	background-size: cover;
+}
+
+.play .play-info {
+	padding: 1em 1.2em;
+	border-top: 1px solid #d8d8d8;
+}
+
+.play .play-info .play-subject,
+.play .play-info .play-content {
+	white-space: nowrap;
+	word-break: break-all;
+	text-overflow: ellipsis;
+	overflow: hidden;
+}
+
+.play .play-info .play-subject {
+	margin-bottom: .2em;
+	font-weight: 600;
+	color: #333333;
+}
+
+.play .play-info .play-content {
+	margin: 0;
+	padding: 0;
+	color: #777777;
+}
+
+.page {
+	padding: 60px 0;
+	font-size: 130%;
+	font-family: 'Noto Sans', 'Nanum Gothic', 'dotum', 'hevetica' !important;
+	font-weight: 300;
+}
+
+.page .page-img {
+	display: block;
+	max-width: 100%;
+	margin: 0 auto 40px;
+}
+
+.page .page-content {
+	margin-bottom: 20px;
+}
+
+.page .page-result-image {
+	display: block;
+	max-width: 100%;
+	margin: 0 auto 60px;
+}
+
+.page .alert {
+	display: none;
+	margin: 20px 0;
+	font-size: 80%;
+}
+
+.policy {
+	padding-bottom: 60px;
+}
+
+.policy h3 {
+	margin-bottom: .8em;
+}
+
+.policy ul {
+	margin-bottom: 2em;
+}
+
+.btn span,
+.btn i {
+	vertical-align: middle;
+}
+
+.btn i {
+	font-size: 160%;
+}
+
+.description {
+	padding: 60px 0;
+	text-align: center;
+	line-height: 2.4;
+}
+
+.title {
+	padding: 10px 0;
+	text-align: center;
+}
+
+@media screen and (max-width: 600px) {
+	body {
+		font-size: 12px;
+	}
+
+	.section h2 {
+		text-align: center;
+	}
+
+	.play-list .play {
+		float: none;
+		width: 100%;
+		margin: 20px 0;
+	}
+
+	.article {
+		position: relative;
+	}
+
+	.article-img,
+	.article-inner {
+		display: block;
+		width: 100%;
+		text-align: center;
+	}
+
+	.article-img {
+		position: absolute;
+		top: 0;
+		left: 0;
+	}
+
+	.article-inner {
+		margin-top: 290px;
+	}
+}

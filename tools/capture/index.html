@@ -1,0 +1,451 @@
+<!DOCTYPE HTML>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, width=device-width" />
+	<meta property="og:site_name" content="인터페이스 엔터테인먼트"./>
+	<meta property="og:description" content="인터페이스, 페이스북, 전생게임, 전생에 나는 무얼했을까, 페이스북 게임, 심심풀이, 연인게임">
+	<meta property="og:type" content="blog"./>
+	<meta property="article:author" content="PIGNOSE">
+	<meta property="article:publisher" content="PIGNOSE">
+	<title>인터페이스 - {{ title }}</title>
+	<script type="text/javascript" src="./static/script/jquery.latest.js"></script>
+	<script type="text/javascript" src="./static/script/common.js"></script>
+	<script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+	<link rel="stylesheet" href="./static/style/import.css" />
+	<link rel="shortcut icon" type="image/x-icon" href="./static/image/favicon.ico" />
+	<style type="text/css">
+		#content {
+			padding-bottom: 40px;
+			text-align: center;
+		}
+
+		#content .export {
+			display: block;
+			width: 100%;
+			max-width: 100%;
+			text-decoration: none !important;
+			font-size: 0;
+		}
+
+		.window-type {
+			border: 1px solid #333333;
+			border-bottom: none;
+			overflow: hidden;
+		}
+
+		.window-type-item {
+			display: block;
+			width: 50%;
+			float: left;
+			text-align: center;
+			height: 80px;
+			line-height: 80px;
+			text-align: center;
+			text-decoration: none !important;
+			color: #333333;
+			box-sizing: border-box;
+			-o-box-sizing: border-box;
+			-moz-box-sizing: border-box;
+			-webkit-box-sizing: border-box;
+		}
+
+		.window-type-item.active {
+			color: #ffffff;
+			background-color: #333333;
+		}
+
+		.window-type-mac {
+			border-right: 1px solid #333333;
+		}
+
+		.file {
+			display: block;
+			width: 100%;
+			height: 200px;
+			line-height: 200px;
+			border: 1px solid #333333;
+			font-size: 130%;
+			margin-bottom: 40px;
+			text-align: center;
+			position: relative;
+			overflow: hidden;
+		}
+
+		.file input {
+			position: absolute;
+			top: 0;
+			right: 0;
+			font-size: 1000px;
+			opacity: 0;
+			cursor: pointer;
+		}
+
+		.window {
+			display: inline-block;
+			*display: inline;
+			*zoom: 1;
+			font-size: 0;
+			position: relative;
+			overflow: hidden;
+		}
+
+		.window .window-inner {
+			display: inline-block;
+			*display: inline;
+			*zoom: 1;
+			border-radius: 5px;
+			overflow: hidden;
+			margin: 30px;
+			border: 1px solid #bababa;
+			position: relative;
+			z-index: 5;
+		}
+
+		.window .window-pos {
+			width: 30px;
+			height: 30px;
+			position: absolute;
+		}
+
+		.window .window-pos.window-pos-t {
+			width: auto;
+			top: 0;
+			left: 35px;
+			right: 35px;
+			background: url('./static/image/dropshadow-t.png') repeat-x left 7px scroll transparent;
+		}
+
+		.window .window-pos.window-pos-tr {
+			right: 3px;
+			top: 3.2px;
+			width: 32px;
+			height: 32px;
+			background: url('./static/image/dropshadow-tr.png') no-repeat left bottom scroll transparent;
+		}
+
+		.window .window-pos.window-pos-r {
+			height: auto;
+			top: 35px;
+			bottom: 35px;
+			right: 0;
+			background: url('./static/image/dropshadow-r.png') repeat-y -5px top scroll transparent;
+		}
+
+		.window .window-pos.window-pos-br {
+			right: 3px;
+			bottom: 3px;
+			width: 32px;
+			height: 32px;
+			background: url('./static/image/dropshadow-br.png') no-repeat left top scroll transparent;
+		}
+
+		.window .window-pos.window-pos-b {
+			width: auto;
+			bottom: 0;
+			left: 35px;
+			right: 35px;
+			background: url('./static/image/dropshadow-b.png') repeat-x left -6px scroll transparent;
+		}
+
+		.window .window-pos.window-pos-bl {
+			left: 3.2px;
+			bottom: 3px;
+			width: 32px;
+			height: 32px;
+			background: url('./static/image/dropshadow-bl.png') repeat-x right top scroll transparent;
+		}
+
+		.window .window-pos.window-pos-l {
+			height: auto;
+			top: 35px;
+			bottom: 35px;
+			left: 0;
+			background: url('./static/image/dropshadow-l.png') repeat-y 6px top scroll transparent;
+		}
+
+		.window .window-pos.window-pos-tl {
+			left: 3.2px;
+			top: 3.2px;
+			width: 32px;
+			height: 32px;
+			background: url('./static/image/dropshadow-tl.png') repeat-x right bottom scroll transparent;
+		}
+
+		.window .window-inner .window-header {
+			height: 31px;
+			padding: 0 16px;
+			background-color: #efefef;
+			border-bottom: 1px solid #e2e2e2;
+			box-sizing: border-box;
+			-o-box-sizing: border-box;
+			-moz-box-sizing: border-box;
+			-webkit-box-sizing: border-box;
+			line-height: 31px;
+		}
+
+		.window.window-mac .window-inner .window-header {
+			text-align: left;
+		}
+
+		.window.window-windows .window-inner .window-header {
+			text-align: right;
+		}
+
+		.window.window .window-inner img {
+			max-width: 100%;
+		}
+
+		.window .window-inner .window-header img {
+			width: 16px;
+			height: 16px;
+			margin-left: 16px;
+		}
+
+		.window .window-inner .window-header .circle {
+			display: inline-block;
+			*display: inline;
+			*zoom: 1;
+			width: 12px;
+			height: 12px;
+			border-radius: 50%;
+			margin-right: 10px;
+			vertical-align: middle;
+			box-sizing: border-box;
+			-o-box-sizing: border-box;
+			-moz-box-sizing: border-box;
+			-webkit-box-sizing: border-box;
+		}
+
+		.window .window-inner .window-header .circle.circle-close {
+			background-color: #ff5a52;
+			border: 1px solid #e45650;
+		}
+
+		.window .window-inner .window-header .circle.circle-minimize {
+			background-color: #ffd638;
+			border: 1px solid #fac636;
+		}
+
+		.window .window-inner .window-header .circle.circle-hide {
+			background-color: #40e278;
+			border: 1px solid #39ca67;
+		}
+
+		.window .window-inner .window-header .circle.circle-close {
+			background-color: #ff5a52;
+		}
+
+		.overlay {
+			position: fixed;
+			display: table;
+			width: 100%;
+			height: 100%;
+			table-layout: fixed;
+			border-collapse: collapse;
+			top: 0;
+			left: 400%;
+			opacity: 0;
+			transition: opacity .3s ease;
+			-o-transition: opacity .3s ease;
+			-moz-transition: opacity .3s ease;
+			-webkit-transition: opacity .3s ease;
+			z-index: 100;
+		}
+
+		.overlay.active {
+			left: 0;
+			opacity: 1;
+		}
+
+		.overlay-inner {
+			display: table-cell;
+			width: 100%;
+			vertical-align: middle;
+			background-color: rgba(255, 255, 255, .9);
+			font-size: 220%;
+			line-height: 2em;
+		}
+
+		.load4 path:nth-of-type(1) {
+			-webkit-animation: spin_single_neg 1.8s 0.1s cubic-bezier(0.19, 1, 0.22, 1) infinite;
+			animation: spin_single_neg 1.8s 0.1s cubic-bezier(0.19, 1, 0.22, 1) infinite;
+		}
+
+		.load4 path:nth-of-type(2) {
+			-webkit-animation: spin_single_neg 1.8s 0.2s cubic-bezier(0.19, 1, 0.22, 1) infinite;
+			animation: spin_single_neg 1.8s 0.2s cubic-bezier(0.19, 1, 0.22, 1) infinite;
+		}
+
+		.load4 path:nth-of-type(3) {
+			-webkit-animation: spin_single_neg 1.8s 0.3s cubic-bezier(0.19, 1, 0.22, 1) infinite;
+			animation: spin_single_neg 1.8s 0.3s cubic-bezier(0.19, 1, 0.22, 1) infinite;
+		}
+
+		.load4 path:nth-of-type(4) {
+			-webkit-animation: spin_single_neg 1.8s 0.4s cubic-bezier(0.19, 1, 0.22, 1) infinite;
+			animation: spin_single_neg 1.8s 0.4s cubic-bezier(0.19, 1, 0.22, 1) infinite;
+		}
+
+		.load4 path:nth-of-type(5) {
+			-webkit-animation: spin_single_neg 1.8s 0.5s cubic-bezier(0.19, 1, 0.22, 1) infinite;
+			animation: spin_single_neg 1.8s 0.5s cubic-bezier(0.19, 1, 0.22, 1) infinite;
+		}
+
+		.load4 path:nth-of-type(6) {
+			-webkit-animation: spin_single_neg 1.8s 0.6s cubic-bezier(0.19, 1, 0.22, 1) infinite;
+			animation: spin_single_neg 1.8s 0.6s cubic-bezier(0.19, 1, 0.22, 1) infinite;
+		}
+
+		.load4 path:nth-of-type(7) {
+			-webkit-animation: spin_single_neg 1.8s 0.7s cubic-bezier(0.19, 1, 0.22, 1) infinite;
+			animation: spin_single_neg 1.8s 0.7s cubic-bezier(0.19, 1, 0.22, 1) infinite;
+		}
+
+		.load4 path:nth-of-type(8) {
+			-webkit-animation: spin_single_neg 1.8s 0.8s cubic-bezier(0.19, 1, 0.22, 1) infinite;
+			animation: spin_single_neg 1.8s 0.8s cubic-bezier(0.19, 1, 0.22, 1) infinite;
+		}
+
+		.pre path {
+			-webkit-transform-origin: 50% 50%;
+			transform-origin: 50% 50%;
+			-webkit-transform: translate3d(0, 0, 0);
+			transform: translate3d(0, 0, 0);
+			-webkit-backface-visibility: hidden;
+			backface-visibility: hidden;
+		}
+
+		@-webkit-keyframes spin_half {
+			0% {
+				-webkit-transform: rotate(0deg);
+			}
+			50% {
+				-webkit-transform: rotate(360deg);
+			}
+		}
+		@keyframes spin_half {
+			0% {
+				transform: rotate(0deg);
+			}
+			50% {
+				transform: rotate(360deg);
+			}
+		}
+		@-webkit-keyframes spin_full {
+			0% {
+				-webkit-transform: rotate(0deg);
+			}
+			100% {
+				-webkit-transform: rotate(360deg);
+			}
+		}
+		@keyframes spin_full {
+			0% {
+				transform: rotate(0deg);
+			}
+			100% {
+				transform: rotate(360deg);
+			}
+		}
+		@-webkit-keyframes spin_single_neg {
+			0% {
+				-webkit-transform: rotate(0deg);
+			}
+			100% {
+				-webkit-transform: rotate(-180deg);
+			}
+		}
+		@keyframes spin_single_neg {
+			0% {
+				transform: rotate(0deg);
+			}
+			100% {
+				transform: rotate(-180deg);
+			}
+		}
+		@-webkit-keyframes spin_single {
+			0% {
+				-webkit-transform: rotate(0deg);
+			}
+			100% {
+				-webkit-transform: rotate(180deg);
+			}
+		}
+		@keyframes spin_single {
+			0% {
+				transform: rotate(0deg);
+			}
+			100% {
+				transform: rotate(180deg);
+			}
+		}
+		svg {
+			display: inline-block;
+			*display: inline;
+			*zoom: 1;
+		}
+		svg:last-child {
+			margin-right: 0;
+		}
+
+		@media screen and (max-width: 480px) {
+			.overlay {
+				font-size: 6px !important;
+			}
+		}
+	</style>
+	<script type="text/javascript" src="./static/script/es6.promise.min.js"></script>
+	<script type="text/javascript" src="./static/script/html2canvas.js"></script>
+	<script type="text/javascript" src="./capture.js"></script>
+</head>
+<body>
+	<div id="wrapper">
+		<div id="content">
+			<div class="window-type">
+				<a href="#" class="window-type-item window-type-mac active" data-platform="m">Mac</a>
+				<a href="#" class="window-type-item window-type-windows" data-platform="w">Windows</a>
+			</div>
+			<form id="window-maker">
+				<div class="file">
+					<input type="file" name="file" />
+					<span>파일을 업로드하세요</span>
+				</div>
+			</form>
+
+			<img class="export" style="width: auto; margin: 0 auto;" src="./static/image/title.png" alt="" />
+
+			이미지 처리는 모두 사용자의 컴퓨터에서 이루어지기에<br />
+			서버에 사용자 기록을 일체 남기지 않습니다.<br /><br />
+			안심해주세요 :)<br /><br />
+			※ 다만 스마트폰으로 이용할 경우,<br />
+			이미지 다운로드 과정이 조금 느릴 수 있으니<br />
+			이점 양해 부탁드립니다.
+			<div class="overlay">
+				<div class="overlay-inner">
+					<svg version="1.1" id="preloader4" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="140px" height="140px" viewBox="0 0 200 200">
+						<g class="pre load4">
+							<path fill="#1B1A1C" d="M124.5,57L124.5,57c0,3.9-3.1,7-7,7h-36c-3.9,0-7-3.1-7-7v0c0-3.9,3.1-7,7-7h36
+							C121.4,50,124.5,53.1,124.5,57z"./>
+							<path fill="#1B1A1C" d="M147.7,86.9L147.7,86.9c-2.7,2.7-7.2,2.7-9.9,0l-25.5-25.5c-2.7-2.7-2.7-7.2,0-9.9l0,0
+							c2.7-2.7,7.2-2.7,9.9,0L147.7,77C150.5,79.8,150.5,84.2,147.7,86.9z"./>
+							<path fill="#1B1A1C" d="M143,74.5L143,74.5c3.9,0,7,3.1,7,7v36c0,3.9-3.1,7-7,7l0,0c-3.9,0-7-3.1-7-7v-36
+							C136,77.6,139.1,74.5,143,74.5z"./>
+							<path fill="#1B1A1C" d="M148.4,112.4L148.4,112.4c2.7,2.7,2.7,7.2,0,9.9L123,147.7c-2.7,2.7-7.2,2.7-9.9,0h0c-2.7-2.7-2.7-7.2,0-9.9
+							l25.5-25.5C141.3,109.6,145.7,109.6,148.4,112.4z"./>
+							<path fill="#1B1A1C" d="M125.5,143L125.5,143c0,3.9-3.1,7-7,7h-36c-3.9,0-7-3.1-7-7l0,0c0-3.9,3.1-7,7-7h36 C122.4,136,125.5,139.1,125.5,143z"./>
+							<path fill="#1B1A1C" d="M52.3,113.1L52.3,113.1c2.7-2.7,7.2-2.7,9.9,0l25.5,25.5c2.7,2.7,2.7,7.2,0,9.9h0c-2.7,2.7-7.2,2.7-9.9,0
+							L52.3,123C49.5,120.2,49.5,115.8,52.3,113.1z"./>
+							<path fill="#1B1A1C" d="M57,75.5L57,75.5c3.9,0,7,3.1,7,7v36c0,3.9-3.1,7-7,7h0c-3.9,0-7-3.1-7-7v-36C50,78.6,53.1,75.5,57,75.5z"./>
+							<path fill="#1B1A1C" d="M86.9,52.3L86.9,52.3c2.7,2.7,2.7,7.2,0,9.9L61.5,87.6c-2.7,2.7-7.2,2.7-9.9,0l0,0c-2.7-2.7-2.7-7.2,0-9.9
+							L77,52.3C79.8,49.5,84.2,49.5,86.9,52.3z"./>
+						</g>
+					</svg><br />
+					이미지를 처리중입니다.<br />
+					몇 초밖에 안걸리니 잠깐 카톡보고 오세요.
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>
