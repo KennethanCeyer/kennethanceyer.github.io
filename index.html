@@ -6,27 +6,28 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="shortcut icon" type="image/x-icon" href="favicon.ico" />
-    <meta name="theme-color" content="#262830">
-    <meta name="msapplication-navbutton-color" content="#262830">
-    <meta name="apple-mobile-web-app-status-bar-style" content="#262830">
+    <meta name="theme-color" content="#2e3141">
+    <meta name="msapplication-navbutton-color" content="#2e3141">
+    <meta name="apple-mobile-web-app-status-bar-style" content="#2e3141">
     <meta name="author" content="PIGNOSE" />
     <meta name="keywords" content="developer,pignose,pignose-barn,kennethanceyer">
-    <meta name="description" content="PIGNOSE official site">
+    <meta name="description" content="동네에서도 볼 수 있는 흔한 개발자의 사이트 PIGNOSE. 내용은 별로 없으나 마음껏 즐겨 주세요!">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="PIGNOSE">
-    <meta name="twitter:description" content="PIGNOSE official site">
-    <meta name="twitter:image:src" content="http://www.pigno.se/cover@250.png">
-    <meta name="twitter:url" content="http://www.pigno.se">
+    <meta name="twitter:description" content="동네에서도 볼 수 있는 흔한 개발자의 사이트 PIGNOSE. 내용은 별로 없으나 마음껏 즐겨 주세요!">
+    <meta name="twitter:image:src" content="https://www.pigno.se/assets/images/main-pignose-geometry.png">
+    <meta name="twitter:url" content="https://www.pigno.se">
     <meta property="og:title" content="PIGNOSE">
-    <meta property="og:description" content="PIGNOSE official site">
-    <meta property="og:url" content="http://www.pigno.se">
+    <meta property="og:description" content="동네에서도 볼 수 있는 흔한 개발자의 사이트 PIGNOSE. 내용은 별로 없으나 마음껏 즐겨 주세요!">
+    <meta property="og:url" content="https://www.pigno.se">
     <meta property="og:type" content="website" />
-    <meta property="og:locale" content="en_US">
-    <meta property="og:locale:alternate" content="ko_KR">
+    <meta property="og:locale" content="ko_KR">
+    <meta property="og:locale:alternate" content="en_US">
     <meta property="og:site_name" content="PIGNOSE">
-    <meta property="og:image" content="http://www.pigno.se/cover@250.png">
+    <meta property="og:image" content="https://www.pigno.se/assets/images/main-pignose-geometry.png">
     <!--[if lte IE 8]><script src="static/assets/js/ie/html5shiv.js"></script><![endif]-->
     <link rel="stylesheet" href="static/assets/css/import.css" />
+    <link rel="stylesheet" href="static/assets/css/particles.css" />
     <!--[if lte IE 9]><link rel="stylesheet" href="static/assets/css/ie9.css" /><![endif]-->
     <!--[if lte IE 8]><link rel="stylesheet" href="static/assets/css/ie8.css" /><![endif]-->
 </head>
@@ -55,6 +56,7 @@
         </nav>
 
         <section id="banner">
+            <canvas id="canvas"></canvas>
             <div class="inner">
                 <h2>HELLO PIGNOSE</h2>
                 <p>동네에서도 볼 수 있는 흔한 개발자</p>
@@ -75,13 +77,14 @@
                     <div class="content">
                         <h2 class="major">PIGNOSE</h2>
                         <p>
-                            피그노즈는 본래 네트워크 스니핑(Network Sniffing)에서 파생된 브랜드였습니다.<br />
-                            그때는 규모있는 서비스들의 취약점을 분석하고<br />
-                            리포팅을 해주기 위해 사용한 개인 브랜드였으나.<br />
+                            피그노즈는<br />
+                            네트워크 스니핑(Network Sniffing)에서 탄생한 이름이었습니다.<br />
+                            그때는 서비스들의 취약점을 분석하고<br />
+                            리포팅을 해주기 위해 사용한 개인 브랜드였으나<br />
                             지금은 방향성과 철학이 달라졌습니다.<br /><br />
                             지금의 피그노즈는 각종 연구와 기술을 공유하고<br />
                             새로운 오픈소스를 기여하며<br />
-                            흥미있는 기술주제를 발표하는 것으로 이루어져 있습니다.
+                            흥미있는 기술주제를 발표하는 것을 지향합니다.
                         </p>
                         <a href="pignose.html" class="special" target="_blank">피그노즈에 대해 더 알아보기</a>
                     </div>
@@ -115,9 +118,9 @@
                     <div class="content">
                         <h2 class="major">BJA Security</h2>
                         <p>
-                            BJA는 동네에서 흔하게 볼 수 있는 보안팀입니다.<br />
-                            극소규모의 커뮤니티로 이루어져 있으며<br />
-                            그들이 무엇을 하는지는 아무도 모릅니다.<br />
+                            BJA는 동네에서 쉽게 만날 수 있는 보안팀입니다.<br />
+                            소규모의 커뮤니티로 이루어져 있으며<br />
+                            누구도 그들이 무엇을 하는지는 아무도 모릅니다.<br />
                             <u>왜냐면 그들은 아무것도 하지 않으니까요</u>
                         </p>
                         <a href="bja.html" class="special" target="_blank">대체 BJA가 뭔데?</a>
@@ -129,17 +132,17 @@
                 <div class="inner">
                     <h2 class="major">최근 끄적임</h2>
                     <p>
-                        피그노즈의 주인 피그는 게으릅(Lazy)니다.<br />
-                        왜냐면 그는 귀찮은 것은 질색하며 의미없는 것은 멀리하기 때문이죠<br />
-                        그래도 그가 그 무거운 몸을 끌고 대체 무엇을 했는지 봅시다.
+                        피그노즈의 주인 피그는 게으른(Lazy) 성격을 가지고 있습니다.<br />
+                        그는 귀찮은 것은 질색하며 의미없는 것은 멀리하기 때문이죠<br />
+                        그래도 그가 무거운 몸을 끌고 무엇을 했는지 봅시다.
                     </p>
                     <section class="features">
                         <article>
                             <a href="https://www.slideshare.net/KennethCeyer/pycon-korea-2017" class="image" target="_blank"><img src="static/assets/images/cover/main-cover-1.png" alt="" /></a>
                             <h3 class="major">Pycon KR 2017</h3>
                             <p>
-                                리액티브 프로그래밍을 주제로 파이코니스트들에게 기술 내용을 공유하는 자리를 가졌습니다.
-                                파이콘은 정말이지 다른 컨퍼런스랑 다르게 열정이 느껴집니다.
+                                리액티브 프로그래밍을 주제로 파이써니스트들에게 기술 내용을 공유하는 자리를 가졌습니다.
+                                파이콘은 정말이지 다른 컨퍼런스랑 다르게 열정이 느껴집니다
                             </p>
                             <a href="https://www.slideshare.net/KennethCeyer/pycon-korea-2017" class="special" target="_blank">발표보기</a>
                         </article>
@@ -148,7 +151,7 @@
                             <h3 class="major">Hello IO</h3>
                             <p>
                                 io는 마이크로하고 투명한 프로토타입 기반 언어입니다. 최근 VS CODE 확장으로 지원되는
-                                io 하이라이터를 작성하여 배포하였습니다.
+                                io 하이라이터를 작성하여 배포하였습니다
                             </p>
                             <a href="https://github.com/KennethanCeyer/vscode-io-extension" class="special" target="_blank">프로젝트 보기</a>
                         </article>
@@ -156,8 +159,8 @@
                             <a href="http://blog.pigno.se/post/158065572438/%EC%9E%90%EB%B0%94%EC%8A%A4%ED%81%AC%EB%A6%BD%ED%8A%B8-%EB%B6%80%EB%B6%84-%ED%83%84%EC%84%B1%EC%B6%A9%EB%8F%8C-%EA%B5%AC%ED%98%84%ED%95%98%EA%B8%B0" class="image" target="_blank"><img src="static/assets/images/cover/main-cover-3.png" alt="" /></a>
                             <h3 class="major">탄성충돌 구현기</h3>
                             <p>
-                                정말 의미없는 작업입니다. 만약 할 것이 없다면 이 의미없는 작업을 열심히 포스트한
-                                흔한 글을 살펴보세요.
+                                정말 의미없는 작업입니다. 시간이 남는다면 이 의미없는 작업을 열심히 포스트한
+                                글을 살펴보세요
                             </p>
                             <a href="http://blog.pigno.se/post/158065572438/%EC%9E%90%EB%B0%94%EC%8A%A4%ED%81%AC%EB%A6%BD%ED%8A%B8-%EB%B6%80%EB%B6%84-%ED%83%84%EC%84%B1%EC%B6%A9%EB%8F%8C-%EA%B5%AC%ED%98%84%ED%95%98%EA%B8%B0" class="special">내가.. 뭘 본거지..</a>
                         </article>
@@ -189,7 +192,7 @@
                 <script>
 
                 var disqus_config = function () {
-                this.page.url = 'http://www.pigno.se';  // Replace PAGE_URL with your page's canonical URL variable
+                this.page.url = 'https://www.pigno.se';  // Replace PAGE_URL with your page's canonical URL variable
                 this.page.identifier = null; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
                 };
                 (function() { // DON'T EDIT BELOW THIS LINE
@@ -216,6 +219,10 @@
     <script src="static/assets/js/jquery.scrollex.min.js"></script>
     <script src="static/assets/js/util.js"></script>
     <!--[if lte IE 8]><script src="static/assets/js/ie/respond.min.js"></script><![endif]-->
+    <script src="static/assets/js/tweenlite.min.js"></script>
+    <script src="static/assets/js/easepack.min.js"></script>
+    <script src="static/assets/js/raf.shim.js"></script>
+    <script src="static/assets/js/particles.js"></script>
     <script src="static/assets/js/main.js"></script>
 
 </body>

@@ -112,6 +112,7 @@ section {
 
 body {
     line-height: 1;
+    overflow-x: hidden;
 }
 
 ol,
@@ -2121,6 +2122,10 @@ input[type="radio"]+label:before {
     display: block;
 }
 
+.image.small img {
+    max-width: 250px;
+}
+
 .image.left,
 .image.right {
     max-width: 40%;
@@ -2162,7 +2167,6 @@ input[type="radio"]+label:before {
 .image.main img {
     width: 100%;
 }
-
 
 /* List */
 

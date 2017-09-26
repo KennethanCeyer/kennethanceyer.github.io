@@ -1,0 +1,73 @@
+.more-pens {
+    position: fixed;
+    left: 20px;
+    bottom: 20px;
+    z-index: 10;
+    font-family: "Montserrat";
+    font-size: 12px;
+}
+
+a.white-mode,
+a.white-mode:link,
+a.white-mode:visited,
+a.white-mode:active {
+    font-family: "Montserrat";
+    font-size: 12px;
+    text-decoration: none;
+    background: #212121;
+    padding: 4px 8px;
+    color: #f7f7f7;
+}
+
+a.white-mode:hover,
+a.white-mode:link:hover,
+a.white-mode:visited:hover,
+a.white-mode:active:hover {
+    background: #edf3f8;
+    color: #212121;
+}
+
+.pentahedron {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    fill: #3E92FF;
+}
+
+.point {
+    fill: #8491A3;
+}
+
+.rhombus {
+    fill: #3bec78;
+    stroke: #3bec78;
+}
+
+.x {
+    fill: #FFC600;
+}
+
+.circle {
+    fill: #FF473D;
+}
+
+svg {
+    display: block;
+    width: 30px;
+    height: 30px;
+    position: absolute;
+    transform: translateZ(0px);
+}
+
+#banner .inner {
+    position: relative;
+    z-index: 50;
+}
+
+#canvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}

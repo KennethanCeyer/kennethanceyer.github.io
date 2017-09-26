@@ -18,6 +18,14 @@
 
 	$(function() {
 
+        $('.button.apply').bind('click', function(event) {
+            var href = $(this).attr('href');
+            if (!href || href[0] === '#') {
+                event.preventDefault();
+                alert('해당 지원신청이 마감되었습니다 감사합니다.');
+            }
+        });
+
 		var	$window = $(window),
 			$body = $('body'),
 			$header = $('#header'),
@@ -29,7 +37,7 @@
 			$window.on('load', function() {
 				window.setTimeout(function() {
 					$body.removeClass('is-loading');
-				}, 100);
+				}, 50);
 			});
 
 		// Fix: Placeholder polyfill.
