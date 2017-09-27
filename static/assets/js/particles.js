@@ -65,12 +65,35 @@ function randomInt(min, max) {
 
 var data = [point, rhombus, pentahedron, circle, x];
 var particles = [];
+var active = true;
+
+document.addEventListener('visibilitychange', function() {
+    active = document.visibilityState === 'visible';
+});
+
+window.addEventListener('resize', function() {
+    particles = particles.filter(function(p) {
+        p.destroy();
+        return false;
+    });
+});
 
 setInterval(function () {
-    particles.push(new Particle(data[randomInt(0, data.length - 1)], {
-        "x": Math.random() * $(window).width(),
-        "y": $("#banner").outerHeight()
-    }, 1 + Math.random() * 3));
+    if (!active) return false;
+    var item = data[randomInt(0, data.length - 1)];
+    var speedBasic = window.innerWidth > 640? 1 : .6;
+    var speedFactor = window.innerWidth > 640? 3 : 2;
+    var offset = window.innerWidth > 640? 120 : 40
+    var containerWidth = $("#banner").outerWidth();
+    var containerHeight = $("#banner").outerHeight();
+    var positionX = Math.random() * containerWidth;
+    var positionY = window.innerWidth > 640? 
+        containerHeight + ((containerWidth - positionX) / containerWidth) * offset :
+        containerHeight - (1 - ((containerWidth - positionX) / containerWidth)) * offset;
+    particles.push(new Particle(item, {
+        "x": positionX,
+        "y": positionY,
+    }, speedBasic + Math.random() * speedFactor));
 }, 800 + (Math.random() * 300));
 
 function update() {
@@ -149,17 +172,38 @@ update();
         if (!('mousemove' in container)) {
             container.addEventListener('mousemove', mouseMove);
         }
+
+        if (!('touchmove' in container)) {
+            container.addEventListener('touchmove', mouseMove);
+        }
+
+        window.addEventListener('resize', function() {
+            initHeader();
+            initAnimation();
+        });
+
         window.addEventListener('scroll', scrollCheck);
     }
 
     function mouseMove(e) {
+        var eventX = 0;
+        var eventY = 0;
         var posx = 0;
         var posy = 0;
 
-        if (e.pageX || e.pageY) {
-            posx = e.pageX - container.offsetLeft;
-            posy = e.pageY - container.offsetTop;
+        if (e.type == 'touchstart' || e.type == 'touchmove' || e.type == 'touchend' || e.type == 'touchcancel'){
+            console.log(e.originalEvent);
+            var touch = e.changedTouches[0] || e.originalEvent.touches[0] || e.originalEvent.changedTouches[0];
+            eventX = touch.pageX;
+            eventY = touch.pageY;
+        } 
+        else if (e.type == 'mousedown' || e.type == 'mouseup' || e.type == 'mousemove' || e.type == 'mouseover'|| e.type=='mouseout' || e.type=='mouseenter' || e.type=='mouseleave') {
+            eventX = e.pageX;
+            eventY = e.pageY;
         }
+
+        posx = eventX- container.offsetLeft;
+        posy = eventY - container.offsetTop;
         target.x = posx;
         target.y = posy;
     }

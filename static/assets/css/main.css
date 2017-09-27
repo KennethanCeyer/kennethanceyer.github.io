@@ -112,7 +112,6 @@ section {
 
 body {
     line-height: 1;
-    overflow-x: hidden;
 }
 
 ol,
@@ -2990,7 +2989,6 @@ button:disabled,
     #menu .inner {
         max-height: 100%;
         overflow-y: auto;
-        overflow-x: hidden;
     }
     #menu .inner .close {
         background-size: 1.5em 1.5em;

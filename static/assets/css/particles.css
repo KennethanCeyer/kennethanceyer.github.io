@@ -1,3 +1,9 @@
+html, body {
+    width: 100%;
+    position: relative;
+    overflow-x: hidden;
+}
+
 .more-pens {
     position: fixed;
     left: 20px;
@@ -56,10 +62,13 @@ svg {
     width: 30px;
     height: 30px;
     position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 50;
     transform: translateZ(0px);
 }
 
-#banner .inner {
+.inner {
     position: relative;
     z-index: 50;
 }
@@ -70,4 +79,11 @@ svg {
     left: 0;
     right: 0;
     bottom: 0;
+}
+
+@media screen and (max-width: 640px) {
+    svg {
+        width: 14px;
+        height: 14px;
+    }
 }
