@@ -192,7 +192,6 @@ update();
         var posy = 0;
 
         if (e.type == 'touchstart' || e.type == 'touchmove' || e.type == 'touchend' || e.type == 'touchcancel'){
-            console.log(e.originalEvent);
             var touch = e.changedTouches[0] || e.originalEvent.touches[0] || e.originalEvent.changedTouches[0];
             eventX = touch.pageX;
             eventY = touch.pageY;
