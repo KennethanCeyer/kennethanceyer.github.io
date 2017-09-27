@@ -105,7 +105,7 @@ function update() {
 update();
 
 (function () {
-    var width, height, container, canvas, ctx, points, target, animateHeader = true;
+    var width, height, calculatedWidth, calculatedHeight, container, canvas, devicePixelRatio, backingStoreRatio, ratio, ctx, points, target, animateHeader = true;
 
     initHeader();
     initAnimation();
@@ -117,17 +117,28 @@ update();
         container = document.getElementById('banner');
         width = container.clientWidth;
         height = container.clientHeight;
-
         canvas = document.getElementById('canvas');
-        canvas.width = width;
-        canvas.height = height;
         ctx = canvas.getContext('2d');
+        devicePixelRatio = window.devicePixelRatio || 1,
+        backingStoreRatio = ctx.webkitBackingStorePixelRatio ||
+                            ctx.mozBackingStorePixelRatio ||
+                            ctx.msBackingStorePixelRatio ||
+                            ctx.oBackingStorePixelRatio ||
+                            ctx.backingStorePixelRatio || 1,
+        ratio = devicePixelRatio / backingStoreRatio;
+        calculatedWidth = width * ratio;
+        calculatedHeight = height * ratio;
+        canvas.width = calculatedWidth;
+        canvas.height = calculatedHeight;
+        canvas.style.width = width + 'px';
+        canvas.style.height = height + 'px';
+        ctx.scale(ratio, ratio);
 
         points = [];
-        for (var x = 0; x < width; x = x + width / 10) {
-            for (var y = 0; y < height; y = y + height / 10) {
-                var px = x + Math.random() * width / 10;
-                var py = y + Math.random() * height / 10;
+        for (var x = 0; x < calculatedWidth; x = x + calculatedWidth / 10) {
+            for (var y = 0; y < calculatedHeight; y = y + calculatedHeight / 10) {
+                var px = x + Math.random() * calculatedWidth / 10;
+                var py = y + Math.random() * calculatedHeight / 10;
                 var p = { x: px, originX: px, y: py, originY: py };
                 points.push(p);
             }
@@ -221,18 +232,18 @@ update();
 
     function animate() {
         if (animateHeader) {
-            ctx.clearRect(0, 0, width, height);
+            ctx.clearRect(0, 0, calculatedWidth, calculatedHeight);
             for (var i in points) {
-                if (Math.abs(getDistance(target, points[i])) < 20000) {
+                if (Math.abs(getDistance(target, points[i])) < container.clientWidth * 10) {
                     points[i].active = 0.2;
                     points[i].circle.active = 0.4;
-                } else if (Math.abs(getDistance(target, points[i])) < 60000) {
+                } else if (Math.abs(getDistance(target, points[i])) < container.clientWidth * 30) {
                     points[i].active = 0.075;
                     points[i].circle.active = 0.15;
-                } else if (Math.abs(getDistance(target, points[i])) < 160000) {
+                } else if (Math.abs(getDistance(target, points[i])) < container.clientWidth * 80) {
                     points[i].active = 0.0375;
                     points[i].circle.active = 0.05;
-                } else if (Math.abs(getDistance(target, points[i])) < 240000) {
+                } else if (Math.abs(getDistance(target, points[i])) < container.clientWidth * 120) {
                     points[i].active = 0.015;
                     points[i].circle.active = 0.025;
                 } else {
@@ -290,7 +301,7 @@ update();
 
     // Util
     function getDistance(p1, p2) {
-        return Math.pow(p1.x - p2.x, 2) + Math.pow(p1.y - p2.y, 2);
+        return Math.pow(p1.x /ratio - p2.x / ratio, 2) + Math.pow(p1.y / ratio - p2.y / ratio, 2);
     }
 
 })();
