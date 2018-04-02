@@ -13,9 +13,6 @@
 [submodule "barn/PIGNOSE-Tab"]
 	path = barn/PIGNOSE-Tab
 	url = https://github.com/KennethanCeyer/pg-tab
-[submodule "barn/PIGNOSE-SinglePage"]
-	path = barn/PIGNOSE-SinglePage
-	url = https://github.com/KennethanCeyer/pg-single-page
 [submodule "barn/PIGNOSE-Popup"]
 	path = barn/PIGNOSE-Popup
 	url = https://github.com/KennethanCeyer/pg-popup
