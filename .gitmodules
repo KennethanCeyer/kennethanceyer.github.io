@@ -22,3 +22,6 @@
 [submodule "barn/PIGNOSE-Formula"]
 	path = barn/PIGNOSE-Formula
 	url = https://github.com/KennethanCeyer/formula
+[submodule "barn/learn-golang-kr"]
+	path = barn/learn-golang-kr
+	url = https://github.com/KennethanCeyer/learn-golang-kr.git
