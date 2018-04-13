@@ -28,3 +28,6 @@
 [submodule "barn/tutorial-git"]
 	path = barn/tutorial-git
 	url = https://github.com/KennethanCeyer/tutorial-git.git
+[submodule "barn/resume"]
+	path = barn/resume
+	url = https://github.com/KennethanCeyer/resume.git
